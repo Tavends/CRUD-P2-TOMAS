@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD inventario</title>
+    <head>
+        <link rel="stylesheet" type="text/css" href="assets/style.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+      </head>
+      <body>
+        <header>
+          <h1>TMM Logistics S.A</h1>
+          <!-- Nota Personal: Titulo de nuestro sitio -->
+        </header>
+        <form id="create-form">
+          <!-- Nota Personal: Form nos permitira hacer un una caja para los distintos elementos del formulario -->
+          <label>Nombre de Articulo:</label>
+          <!-- Nota Personal: Primer Item de la caja -->
+          <input type="text" id="item-name" required>
+          <!-- Nota Personal: Agregar el tipo de informacion, lo que nos permitira editar; el id para identificar y poder utilizar en funcionalidad son requisitos -->
+          <label>Bodega y descripción:</label>
+          <!-- Nota Personal: Segunda caja -->
+          <input type="text" id="sector" required>
+          <button type="submit">Crear</button>
+          <!-- Nota Personal: Recordar que aqui existen tambien "Button" y "reset" -->
+        </form>
+        <section id="read-section">
+          <!-- Nota Personal: Listado de productos ya ingresados con sus respectivos titulos" -->
+          <table id="items-table">
+            <thead>
+              <tr>
+                <th>Articulo</th>
+                <th>Seccion</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody id="items-tbody"></tbody>
+          </table>
+        </section>
+        <section id="update-section" style="display: none;">
+          <!-- Nota Personal: Aqui estamos creando la "Zona de actualizar" -->
+          <form id="update-form">
+            <label>Item Name:</label>
+            <input type="text" id="update-item-name" required>
+            <label>Sector:</label>
+            <input type="text" id="update-sector" required>
+            <input type="hidden" id="update-id">
+            <button type="submit">Update</button>
+            <button type="button" id="cancel-update-btn">Cancel</button>
+          </form>
+        </section>
+      </body>
+
+      <footer
+      class="text-center text-lg-start text-dark"
+      style="background-color: #ECEFF1"
+      >
+<!-- Nota Personal: Social media -->
+<section
+         class="d-flex justify-content-between p-4 text-white"
+         style="background-color: #21D192"
+         >
+  <!-- Nota Personal: Left -->
+  <div class="me-5">
+    <span>Get connected with us on social networks:</span>
+  </div>
+  <!-- Nota Personal: Left -->
+
+  <!-- Nota Personal: Right -->
+  <div>
+    <a href="" class="text-white me-4">
+      <i class="fab fa-facebook-f"></i>
+    </a>
+    <a href="" class="text-white me-4">
+      <i class="fab fa-twitter"></i>
+    </a>
+    <a href="" class="text-white me-4">
+      <i class="fab fa-google"></i>
+    </a>
+    <a href="" class="text-white me-4">
+      <i class="fab fa-instagram"></i>
+    </a>
+    <a href="" class="text-white me-4">
+      <i class="fab fa-linkedin"></i>
+    </a>
+    <a href="" class="text-white me-4">
+      <i class="fab fa-github"></i>
+    </a>
+  </div>
+  <!-- Nota Personal: Right -->
+</section>
+<!-- Nota Personal: Social media -->
+
+<!-- Nota Personal: Links  -->
+<section class="">
+  <div class="container text-center text-md-start mt-5">
+    <!-- Grid row -->
+    <div class="row mt-3">
+      <!-- Grid column -->
+      <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+        <!-- Content -->
+        <h6 class="text-uppercase fw-bold">TMM Logistics S.A</h6>
+        <hr
+            class="mb-4 mt-0 d-inline-block mx-auto"
+            style="width: 60px; background-color: #7c4dff; height: 2px"
+            />
+        <p>
+          Lo mejor en logistica en Chile y Latam
+        </p>
+      </div>
+      <!-- Nota Personal: Grid column -->
+
+      <!-- Nota Personal: Grid column -->
+      <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+        <!-- Nota Personal: Links -->
+        <h6 class="text-uppercase fw-bold">Nuestros inventarios</h6>
+        <hr
+            class="mb-4 mt-0 d-inline-block mx-auto"
+            style="width: 60px; background-color: #7c4dff; height: 2px"
+            />
+        <p>
+          <a href="#!" class="text-dark">Desktop</a>
+        </p>
+        <p>
+          <a href="#!" class="text-dark">Notebooks</a>
+        </p>
+        <p>
+          <a href="#!" class="text-dark">Componentes</a>
+        </p>
+        <p>
+          <a href="#!" class="text-dark">Otros</a>
+        </p>
+      </div>
+      <!-- Nota Personal: Grid column -->
+
+      <!-- Nota Personal: Grid column -->
+      <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+        <!-- Nota Personal: Links -->
+        <h6 class="text-uppercase fw-bold">Otros Sitios de interes</h6>
+        <hr
+            class="mb-4 mt-0 d-inline-block mx-auto"
+            style="width: 60px; background-color: #7c4dff; height: 2px"
+            />
+        <p>
+          <a href="#!" class="text-dark">Tu cuenta</a>
+        </p>
+        <p>
+          <a href="#!" class="text-dark">Hazte Socio</a>
+        </p>
+        <p>
+          <a href="#!" class="text-dark">Despachos</a>
+        </p>
+        <p>
+          <a href="#!" class="text-dark">Ayuda</a>
+        </p>
+      </div>
+      <!-- Nota Personal: Grid column -->
+
+      <!-- Nota Personal: Grid column -->
+      <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+        <!-- Nota Personal: Links -->
+        <h6 class="text-uppercase fw-bold">Contact</h6>
+        <hr
+            class="mb-4 mt-0 d-inline-block mx-auto"
+            style="width: 60px; background-color: #7c4dff; height: 2px"
+            />
+        <p><i class="fas fa-home mr-3"></i> Parque Titanium, 2670, Las Condes</p>
+        <p><i class="fas fa-envelope mr-3"></i> t.m.avendao@gmail.com</p>
+        <p><i class="fas fa-phone mr-3"></i> +56988282524</p>
+        <p><i class="fas fa-print mr-3"></i> +5692194469</p>
+      </div>
+      <!-- Nota Personal: Grid column -->
+    </div>
+    <!-- Nota Personal: Grid row -->
+  </div>
+</section>
+<!-- Nota Personal: Section: Links  -->
+
+<!-- Nota Personal: Copyright -->
+<div
+     class="text-center p-3"
+     style="background-color: rgba(0, 0, 0, 0.2)"
+     >
+  © 2020 Copyright:
+  <a class="text-dark" href="https://TMMCopyright.com/"
+     >TMMCopyright.com</a
+    >
+</div>
+<!-- Nota Personal: Copyright -->
+</footer>
+<!-- Nota Personal: Footer -->
+      <script src="assets/index.js"></script>
+    </html>
+    
