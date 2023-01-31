@@ -7,7 +7,6 @@ const itemsTBody = document.getElementById("items-tbody");
 const updateForm = document.getElementById("update-form");
 const cancelUpdateBtn = document.getElementById("cancel-update-btn");
 
-
 /* Nota Personal: Con getElementById traemos todos los ID previamente creados para interactuar con ellos */
 
 createForm.addEventListener("submit", e => {
@@ -34,9 +33,9 @@ function renderItems() {
             </td>
         `;
         itemsTBody.appendChild(tr);
-    const getItems = () => {
-            const ItemList = 
-            localStorage.getItem (itemsKey)
+        const getItems = () => {
+            const ItemList =
+                localStorage.getItem(itemsKey)
 
             items = JSON.parse(ItemList)
             console.log("items", items);
@@ -75,5 +74,3 @@ cancelUpdateBtn.addEventListener("click", e => {
     updateForm.reset();
     document.getElementById("update-section").style.display = "none";
 });
-
-renderItems();
