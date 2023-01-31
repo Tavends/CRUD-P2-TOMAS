@@ -40,7 +40,6 @@ function renderItems() {
 
             items = JSON.parse(ItemList)
             console.log("items", items);
-            
         }
     });
 }
