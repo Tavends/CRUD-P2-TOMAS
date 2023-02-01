@@ -7,6 +7,7 @@ const itemsTBody = document.getElementById("items-tbody");
 const updateForm = document.getElementById("update-form");
 const cancelUpdateBtn = document.getElementById("cancel-update-btn");
 
+
 /* Nota Personal: Con getElementById traemos todos los ID previamente creados para interactuar con ellos */
 
 createForm.addEventListener("submit", e => {
@@ -14,8 +15,11 @@ createForm.addEventListener("submit", e => {
     const itemName = document.getElementById("item-name").value;
     const sector = document.getElementById("sector").value;
     items.push({ id: Date.now(), itemName, sector });
+    localStorage.setItem("itemsKey", JSON.stringify(items));
+    let NuevoListado = localStorage.getItem("itemsKey")
     renderItems(); /*Aqui creamos el formulario a leer*/
     createForm.reset();
+
 });
 
 /* Nota Personal: Aqui utilizamos "createForm" para agregar los nuevos objetos al inventario */
@@ -33,12 +37,6 @@ function renderItems() {
             </td>
         `;
         itemsTBody.appendChild(tr);
-        if (localStorage.getItem("itemsKey") == null) {
-            localStorage.setItem("itemsKey", JSON.stringify(itemsKey))
-            } else {
-                itemsKey = JSON.parse(localStorage.getItem("itemsKey"));
-                renderItems ();
-            }
     });
 }
 
@@ -73,3 +71,12 @@ cancelUpdateBtn.addEventListener("click", e => {
     updateForm.reset();
     document.getElementById("update-section").style.display = "none";
 });
+
+window.onload = function() {
+    if (localStorage.getItem("itemsKey") == null) {
+    localStorage.setItem("itemsKey", JSON.stringify(itemsKey));
+    } else {
+    items = JSON.parse(localStorage.getItem("itemsKey"));
+    }
+    renderItems();
+    };
