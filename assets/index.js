@@ -71,11 +71,11 @@ cancelUpdateBtn.addEventListener("click", e => {
     document.getElementById("update-section").style.display = "none";
 });
 
-window.onload = function() {
+window.onload = function () {
     if (localStorage.getItem("itemsKey") == null) {
-    localStorage.setItem("itemsKey", JSON.stringify(itemsKey));
+        localStorage.setItem("itemsKey", JSON.stringify(itemsKey));
     } else {
-    items = JSON.parse(localStorage.getItem("itemsKey"));
+        items = JSON.parse(localStorage.getItem("itemsKey"));
     }
     renderItems();
-    };
+};
