@@ -14,10 +14,10 @@ createForm.addEventListener("submit", e => {
     const itemName = document.getElementById("item-name").value;
     const sector = document.getElementById("sector").value;
     items.push({ id: Date.now(), itemName, sector });
-    localStorage.setItem(itemsKey, JSON.stringify(items));
     renderItems(); /*Aqui creamos el formulario a leer*/
     createForm.reset();
 });
+
 /* Nota Personal: Aqui utilizamos "createForm" para agregar los nuevos objetos al inventario */
 
 function renderItems() {
@@ -33,13 +33,12 @@ function renderItems() {
             </td>
         `;
         itemsTBody.appendChild(tr);
-        const getItems = () => {
-            const ItemList =
-                localStorage.getItem(itemsKey)
-
-            items = JSON.parse(ItemList)
-            console.log("items", items);
-        }
+        if (localStorage.getItem("itemsKey") == null) {
+            localStorage.setItem("itemsKey", JSON.stringify(itemsKey))
+            } else {
+                itemsKey = JSON.parse(localStorage.getItem("itemsKey"));
+                renderItems ();
+            }
     });
 }
 
