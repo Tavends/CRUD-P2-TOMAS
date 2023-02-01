@@ -16,7 +16,6 @@ createForm.addEventListener("submit", e => {
     const sector = document.getElementById("sector").value;
     items.push({ id: Date.now(), itemName, sector });
     localStorage.setItem("itemsKey", JSON.stringify(items));
-    let NuevoListado = localStorage.getItem("itemsKey")
     renderItems(); /*Aqui creamos el formulario a leer*/
     createForm.reset();
 
